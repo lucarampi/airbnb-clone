@@ -1,15 +1,14 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import supabase from '../../service/supabase'
 
-export type DataType = {
+export type LiveAnywereType = {
     id: number
-    img: string,
-    location: string,
-    time_distance: string
+    publicUrl: string,
+    title: string,
 }
 
 type ResponseDataType = {
-    data: DataType[]
+    data: LiveAnywereType[]
     other: string[]
 }
 
@@ -26,7 +25,7 @@ export default async function handler(
         res.status(405).json({ body: 'Method Not Allowed' })
         return;
     }
-    const { data, error } = await supabase.from('explore_nearby').select('*')
+    const { data, error } = await supabase.from('live_anywhere').select('*')
     if (error || data == null) {
         res.status(500).json({ data: [], other: [] })
         return

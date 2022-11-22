@@ -1,13 +1,13 @@
 'use client'
 import Image from "next/image";
 import { DataType as PlaceType } from "../pages/api/getExploreNearby";
-import { getExploreNearby } from "../utils/getExploreNearby";
+import { LiveAnywereType } from "../pages/api/getLiveAnywhere";
 
-interface SmallCardProps {
-  place: PlaceType;
+interface MediumCardProps {
+  item: LiveAnywereType;
 }
 
-export default function SmallCard({ place }: SmallCardProps) {
+export default function MediumCard({  item }: MediumCardProps) {
   // const logData = async()=>{
   //   const {other} = await getExploreNearby();
   //   console.log(other);
@@ -18,15 +18,14 @@ export default function SmallCard({ place }: SmallCardProps) {
       <div className="relative h-16 w-16">
         <Image
           className="rounded-lg"
-          src={place.img}
-          alt={place.location}
+          src={item.publicUrl}
+          alt={item.title}
           fill
         />
       </div>
 
       <div className="flex flex-col items-start justify-start">
-        <h2 className="capitalize font-semibold">{place.location}</h2>
-        <h3 className="text-gray-400">{place.time_distance}</h3>
+        <h3 className="text-gray-400">{item.title}</h3>
       </div>
     </section>
   );
