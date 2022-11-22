@@ -1,9 +1,11 @@
+
+import { axiosClient } from "../service/axios";
 import { getExploreNearby } from "../utils/getExploreNearby";
 import SmallCard from "./SmallCard";
 
 export default async function ExploreNearby() {
-  const { data: places } = await getExploreNearby();
-  // console.log(places)
+  const {data:places} = await getExploreNearby();
+
   return (
     <article className="flex flex-col  justify-center space-y-6 pb-6">
       <h2 className="text-4xl font-semibold">Explore Nearby</h2>

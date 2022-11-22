@@ -3,10 +3,12 @@ import { axiosClient } from "../service/axios";
 
 type APIResponseType = {
   data: PlaceType[];
+  other:string[]
 };
 
 export async function getExploreNearby() {
-  const { data } = await axiosClient.get<APIResponseType>(`/api/getExploreNearby`)
-  return (data || [])
+  const { data:response } = await axiosClient.get<APIResponseType>(`/api/getExploreNearby`)
+  console.log(response)
+  return (response)
 }
 

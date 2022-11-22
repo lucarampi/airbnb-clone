@@ -11,6 +11,7 @@ export type DataType = {
 
 type ResponseDataType = {
     data: DataType[]
+    other: string[]
 }
 
 type ErrorDataType = {
@@ -28,9 +29,12 @@ export default async function handler(
     }
     const { data, error } = await supabase.from('explore_nearby').select('*')
     if (error || data == null) {
-        res.status(500).json({ data: [] })
+        res.status(500).json({ data: [], other: [] })
         return
     }
-    res.status(200).json({ data })
+    res.status(200).json({
+        data, other: [process.env.VERCEL_ENV!,
+        process.env.VERCEL_URL!]
+    })
 
 }
