@@ -1,4 +1,3 @@
-
 import Banner from "./Banner";
 import ExploreNearby from "./ExploreNearby";
 
@@ -9,6 +8,7 @@ export default async function Page() {
     >
       <Banner />
       <main className="max-w-7xl mx-auto px-8 sm:px-16 justify-self-start pt-4">
+        {/* @ts-expect-error */}
         <ExploreNearby />
       </main>
     </div>
