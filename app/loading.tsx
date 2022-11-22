@@ -1,8 +1,8 @@
 export default function Loading() {
   return (
-    <div role="status">
+    <div className="flex flex-1 w-full p-6" role="status">
       <svg
-        className="inline mr-2 w-10 h-10 text-gray-200 animate-spin dark:text-gray-600 fill-red-500"
+        className="inline mr-2 w-10 h-10 text-gray-200 animate-spin dark:text-gray-600 fill-red-400"
         viewBox="0 0 100 101"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
