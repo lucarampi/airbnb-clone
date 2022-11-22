@@ -6,9 +6,9 @@ import ExploreNearby from "./ExploreNearby";
 
 export default async function Page() {
 
-  const folderData = await getDataBucketFolder('airbnb','live_anywhere')
-  const createData = createDataFromBucketFolder('airbnb',folderData)
-  console.log("BUCKETS >>>", createData);
+  // const folderData = await getDataBucketFolder('airbnb','live_anywhere')
+  // const createData = createDataFromBucketFolder('airbnb',folderData)
+  // console.log("BUCKETS >>>", createData);
   
   return (
     <div className=" w-full mx-auto  max-w-[1440px]">
