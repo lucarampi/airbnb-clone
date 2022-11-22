@@ -10,7 +10,7 @@ export type DataType = {
 }
 
 type ResponseDataType = {
-    image: string
+    data: DataType[]
 }
 
 type ErrorDataType = {

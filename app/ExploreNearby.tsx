@@ -1,15 +1,10 @@
-
-import { DataType as PlaceType } from "../pages/api/getExploreNearby";
+import { getExploreNearby } from "../utils/getExploreNearby";
 import SmallCard from "./SmallCard";
 
-type FetchResponseType = {
-  data: PlaceType[];
-};
+
 
 export default async function ExploreNearby() {
-  const { data: places }: FetchResponseType = await fetch(
-    "http://localhost:3000/api/getExploreNearby"
-  ).then((res) => res.json());
+  const places = await getExploreNearby()
 
   return (
     <article className="flex flex-col  justify-center space-y-6 pb-6">
