@@ -8,11 +8,11 @@ interface SmallCard {
 }
 
 export default function SmallCard({ place }: SmallCard) {
-  const logData = async()=>{
-    const {other} = await getExploreNearby();
-    console.log(other);
-  }
-  logData()
+  // const logData = async()=>{
+  //   const {other} = await getExploreNearby();
+  //   console.log(other);
+  // }
+  // logData()
   return (
     <section className="flex items-center space-x-4 cursor-pointer rounded-xl hover:bg-gray-100 hover:scale-105 transition-all duration-200 ease-out">
       <div className="relative h-16 w-16">

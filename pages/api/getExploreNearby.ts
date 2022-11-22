@@ -32,9 +32,9 @@ export default async function handler(
         res.status(500).json({ data: [], other: [] })
         return
     }
+    
     res.status(200).json({
-        data, other: [process.env.VERCEL_ENV!,
-        process.env.VERCEL_URL!]
+        data, other: [process.env.VERCEL_ENV!]
     })
 
 }
