@@ -1,11 +1,9 @@
 import { getExploreNearby } from "../utils/getExploreNearby";
 import SmallCard from "./SmallCard";
 
-
-
 export default async function ExploreNearby() {
-  const places = await getExploreNearby()
-
+  const { data: places } = await getExploreNearby();
+  // console.log(places)
   return (
     <article className="flex flex-col  justify-center space-y-6 pb-6">
       <h2 className="text-4xl font-semibold">Explore Nearby</h2>
