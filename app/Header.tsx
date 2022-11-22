@@ -5,7 +5,7 @@ import { Globe, List, UserCircle } from "phosphor-react";
 
 function Header() {
   return (
-    <header className="sticky top-0 z-50 bg-white  shadow-md  ">
+    <header className="sticky top-0 z-50 bg-white shadow-md ">
       <div className="flex flex-1 mx-auto max-w-[1440px] gap-4 py-5 px-4 md:px-10 items-center justify-between">
         {/* Left */}
         <div className="relative sm:flex items-center w-8 sm:w-10 md:w-32 h-10">

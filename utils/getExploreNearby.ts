@@ -8,7 +8,7 @@ type APIResponseType = {
 
 export async function getExploreNearby() {
   const { data:response } = await axiosClient.get<APIResponseType>(`/api/getExploreNearby`)
-  console.log(response)
+  // console.log(response)
   return (response)
 }
 

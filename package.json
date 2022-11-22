@@ -9,6 +9,7 @@
     "@heroicons/react": "^2.0.12",
     "@supabase/supabase-js": "^2.1.0",
     "axios": "^1.1.3",
+    "encoding": "^0.1.13",
     "next": "latest",
     "phosphor-react": "^1.4.1",
     "react": "18.2.0",
