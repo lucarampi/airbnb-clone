@@ -1,12 +1,12 @@
 import supabase from "../../service/supabase";
+import { BucketInfoType } from "../../typings";
 
-async function getDataBucketFolder(
-    bucketName: string,
-    folderName: string
-) {
+
+
+async function getDataFromBucketFolder(bucketInfo:BucketInfoType) {
     const { data, error } = await supabase.storage
-        .from(`${bucketName}`)
-        .list(`${folderName}`, {
+        .from(`${bucketInfo.bucketName}`)
+        .list(`${bucketInfo.folderName}`, {
             limit: 100,
             offset: 0,
             sortBy: { column: "name", order: "asc" },
@@ -18,4 +18,4 @@ async function getDataBucketFolder(
     return data;
 };
 
-export default getDataBucketFolder
+export default getDataFromBucketFolder

@@ -2,11 +2,11 @@
 import Image from "next/image";
 import { LiveAnywereType } from "../pages/api/getLiveAnywhere";
 
-interface MediumCardProps {
+interface LargeCardProps {
   item: LiveAnywereType;
 }
 
-export default function MediumCard({ item }: MediumCardProps) {
+export default function MediumCard({ item }: LargeCardProps) {
   // const logData = async()=>{
   //   const {other} = await getExploreNearby();
   //   console.log(other);
