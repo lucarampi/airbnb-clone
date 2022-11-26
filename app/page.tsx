@@ -1,14 +1,12 @@
 import supabase from "../service/supabase";
 import { BucketInfoType } from "../typings";
-import { getExploreNearby } from "../utils/getExploreNearby";
-import generateRowsFromBucketFolder from "../utils/supabase/generateRowsFromBucketFolder";
-import getDataFromBucketFolder from "../utils/supabase/getDataFromBucketFolder";
 import Banner from "./Banner";
 import ExploreNearby from "./ExploreNearby";
+import Footer from "./Footer";
+import LargeCard from "./LargeCard";
 import LiveAnywhere from "./LiveAnywhere";
 
 export default async function Page() {
-
   return (
     <div className=" w-full mx-auto  max-w-[1440px]">
       <Banner />
@@ -17,6 +15,8 @@ export default async function Page() {
         <ExploreNearby />
         {/* @ts-expect-error */}
         <LiveAnywhere />
+        {/* @ts-expect-error */}
+        <LargeCard />
       </main>
     </div>
   );
