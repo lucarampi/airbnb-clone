@@ -13,7 +13,7 @@ export default function MediumCard({ item }: MediumCardProps) {
   // }
   // logData()
   return (
-    <section className="flex flex-col gap-1 snap-center cursor-pointer rounded-xl hover:scale-105 transition-all duration-300 ease-out">
+    <button type="button" className="flex flex-col gap-1 snap-center cursor-pointer rounded-xl hover:scale-105 transition-all duration-300 ease-out">
       <div className="relative h-80 w-80">
         <Image
           className="rounded-xl"
@@ -26,6 +26,6 @@ export default function MediumCard({ item }: MediumCardProps) {
       <h3 className="text-gray-400 font-medium first-letter:capitalize">
         {item.title}
       </h3>
-    </section>
+    </button>
   );
 }
