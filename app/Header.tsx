@@ -1,9 +1,35 @@
 "use client";
 
 import Image from "next/image";
-import { Globe, List, UserCircle } from "phosphor-react";
+import { Globe, List, User, UserCircle, Users } from "phosphor-react";
+import "react-date-range/dist/styles.css"; // main style file
+import "react-date-range/dist/theme/default.css"; // theme css file
+import { InputHTMLAttributes, useState } from "react";
+
+import { DateRangePicker, RangeKeyDict, Range } from "react-date-range";
 
 function Header() {
+  const [searchInput, setSearchInput] = useState("");
+  const [numberOfGuests, setNumberOfGuests] = useState(1);
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
+
+  function handleResetInput(){
+    setSearchInput("")
+  }
+
+  const handleSelect = (ranges: RangeKeyDict) => {
+    setStartDate(ranges.selection.startDate!);
+    setEndDate(ranges.selection.endDate!);
+  };
+
+  const selectionRange = {
+    startDate,
+    endDate,
+    key: "selection",
+    showDateDisplay: false,
+  } as Range;
+
   return (
     <header className="sticky top-0 z-50 bg-white shadow-md ">
       <div className="flex flex-1 mx-auto max-w-[1440px] gap-4 py-5 px-4 md:px-10 items-center justify-between">
@@ -30,6 +56,8 @@ function Header() {
         {/* Center */}
         <div className="flex flex-1 max-w-xs sm:max-w-sm md:max-w-xl items-center justify-between shadow border rounded-full h-10 md:h-[50px] text-sm md:text-base px-1 md:px-2">
           <input
+            value={searchInput}
+            onChange={(ev) => setSearchInput(ev.target.value)}
             className="h-full w-full flex-1 bg-transparent outline-none px-2 text-sm text-gray-500 placeholder:text-gray-300"
             type="text"
             placeholder="Search a place..."
@@ -67,6 +95,36 @@ function Header() {
           </div>
         </div>
       </div>
+      {searchInput && (
+        <div className="flex  w-fit gap-4 items-center flex-col mx-auto transition-all">
+          <DateRangePicker
+            ranges={[selectionRange]}
+            minDate={new Date()}
+            rangeColors={["#FD5B61"]}
+            showMonthAndYearPickers={false}
+            onChange={(ranges) => handleSelect(ranges)}
+          />
+          <div className="flex w-full items-center">
+            <h2 className=" text-2xl flex-grow font-semibold ">
+              Number of Guests
+            </h2>
+            <Users size={22} />
+            <input
+              className="w-12 pl-2 text-lg outline-none text-red-500"
+              type="number"
+              name="guests"
+              id="guests"
+              value={numberOfGuests}
+              min={1}
+              onChange={(ev) => setNumberOfGuests(Number(ev.target.value))}
+            />
+          </div>
+          <div className="flex w-full justify-around mb-4">
+            <button onClick={handleResetInput} type="button" className="border-2 border-transparent hover:border-gray-200 bg-gray-100 active:scale-95 py-2 px-8 rounded-full text-gray-400 transition-all">Cancel</button>
+            <button type="button" className="outline outline-2 active:scale-100  outline-offset-2 outline-red-400 py-2 px-14 rounded-full text-white bg-red-400 transition-all hover:scale-105">Search</button>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
